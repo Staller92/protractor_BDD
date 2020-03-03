@@ -1,0 +1,32 @@
+{
+  "name": "protractor-mocha",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "webdriver-manager update --versions.standalone=3.4.0 --versions.chrome=80.0.3987.122",
+    "test": "protractor ./test/config/protractor.config.js --disableChecks"
+  },
+  "author": "Dzmitry Likhtarovich",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "cucumber-pretty": "^6.0.0",
+    "log4js": "^6.1.2",
+    "mocha": "^6.2.0",
+    "mochawesome": "^5.0.0",
+    "protractor": "^5.4.2",
+    "protractor-cucumber-framework": "^6.2.0",
+    "yargs": "^14.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint ./test"
+    }
+  }
+}
