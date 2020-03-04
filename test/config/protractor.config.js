@@ -1,5 +1,7 @@
 const yargs = require('yargs').argv;
 const path = require('path');
+const reporter = require('cucumber-html-reporter');
+const fse = require('fs-extra');
 
 exports.config = {
   getPageTimeout: 60000,
@@ -18,13 +20,15 @@ exports.config = {
   directConnect: true,
 
   cucumberOpts: {
+    'strict': true,
     'require': [path.resolve('./test/step_def/**/*.js')],
-    'format': ['./node_modules/cucumber-pretty'],
+    'format': ['json:./temp/cucumber_report.json', './node_modules/cucumber-pretty'],
+    'ignoreUncaughtExceptions': true,
     'tags': yargs.tag || '@all',
   },
 
   beforeLaunch: () => {
-    // todo clean logs
+    fse.emptyDirSync('./temp');
   },
 
   onPrepare: () => {
@@ -32,7 +36,14 @@ exports.config = {
     browser.manage().timeouts().implicitlyWait(2000);
     return browser.manage().window().maximize();
   },
+
   afterLaunch: () => {
-    // todo add generate report using cucumber-html-reporter
+    return reporter.generate({
+      theme: 'bootstrap',
+      jsonFile: path.resolve('./temp/cucumber_report.json'),
+      output: path.resolve('./temp/cucumber_report.html'),
+      reportSuiteAsScenarios: true,
+      launchReport: true,
+    });
   },
 };
