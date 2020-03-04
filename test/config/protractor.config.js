@@ -22,6 +22,11 @@ exports.config = {
     'format': ['./node_modules/cucumber-pretty'],
     'tags': yargs.tag || '@all',
   },
+
+  beforeLaunch: () => {
+    // todo clean logs
+  },
+
   onPrepare: () => {
     browser.waitForAngularEnabled(false);
     browser.manage().timeouts().implicitlyWait(2000);

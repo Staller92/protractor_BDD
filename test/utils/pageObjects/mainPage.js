@@ -1,12 +1,13 @@
-const BasePage = require('./basePage');
-const Element = require('./element');
+const BasePage = require('./base_elements/basePage');
+const Element = require('./base_elements/element');
+const logger = require('../../config/logger.config').logger;
 
 class MainPage extends BasePage {
   constructor() {
     super();
     this.url = 'https://shop.westerndigital.com';
-    this.searchButton = new Element('searchButton', '//*[contains(@class,"searchbutton")]');
-    this.searchInput = new Element('searchInput', '//*[@id="searchright"]');
+    this.searchButton = new Element('searchButton', by.xpath('//*[contains(@class,"searchbutton")]'));
+    this.searchInput = new Element('searchInput', by.xpath('//*[@id="searchright"]'));
   };
 
   async open() {
@@ -14,6 +15,7 @@ class MainPage extends BasePage {
   };
 
   async search(text) {
+    logger.info(`Searching by text ${text}`);
     await this.searchInput.typeText(text);
     return this.searchInput.submit();
   };

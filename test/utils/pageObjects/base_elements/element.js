@@ -1,10 +1,10 @@
 const EC = require('protractor').ExpectedConditions;
-const logger = require('../../config/logger.config').logger;
+const logger = require('../../../config/logger.config').logger;
 
 class Element {
-  constructor(name, xpath) {
+  constructor(name, locator) {
     this.name = name;
-    this.element = element(by.xpath(xpath));
+    this.element = element(locator);
   };
 
   async click() {
@@ -33,10 +33,12 @@ class Element {
   };
 
   async isElementDisplayed() {
+    logger.info(`Verify that element ${this.name} is displayed`);
     return this.element.isDisplayed();
   };
 
   async waitForElementVisible() {
+    logger.info(`Waiting until element ${this.name} is visible`);
     return browser.wait(EC.visibilityOf(this.element), 10000);
   };
 }

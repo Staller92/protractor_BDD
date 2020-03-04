@@ -1,5 +1,5 @@
 {
-  "name": "protractor-mocha",
+  "name": "protractor-bdd",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

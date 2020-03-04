@@ -32,14 +32,14 @@ describe('Search', function() {
     const searchResultsPage = new SearchResultsPage();
     await searchResultsPage.filterCheckBoxes.waitForElementVisible();
     const count = await searchResultsPage.filterCheckBoxes.getCount();
-    expect(count, '7 checkbox items are not displayed').to.be.equal(7);
+    expect(count).to.be.equal(7);
   });
 
   it('Should display the popover-content on mouseover', async function() {
     await mainPage.Header.shopButton.mouseOver();
     await mainPage.Header.sanDiskButton.mouseOver();
     const productsTitles = await mainPage.Header.allSanDiskProductItems.getText();
-    expect(productsTitles.includes('Portable Drives')).to.be.equal(true);
+    expect(productsTitles).to.include('Portable Drives');
   });
 });
 
