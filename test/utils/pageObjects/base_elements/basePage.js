@@ -8,7 +8,7 @@ class BasePage {
     this.LoginForm = new LoginForm();
   }
 
-  async open(url) {
+  open(url) {
     logger.info(`Page with url ${this.url} is opened`);
     return browser.get(url);
   };

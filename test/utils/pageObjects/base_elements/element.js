@@ -7,37 +7,37 @@ class Element {
     this.element = element(locator);
   };
 
-  async click() {
+  click() {
     logger.info(`Click on ${this.name} was performed`);
     return this.element.click();
   };
 
-  async getText() {
+  getText() {
     logger.info(`Got text from ${this.name}`);
     return this.element.getText();
   };
 
-  async typeText(text) {
+  typeText(text) {
     logger.info(`Text was typed into ${this.name}`);
     return this.element.sendKeys(text);
   };
 
-  async submit() {
+  submit() {
     logger.info(`Submit on ${this.name} was performed`);
     return this.element.submit();
   };
 
-  async mouseOver() {
+  mouseOver() {
     logger.info(`Mouse was over on ${this.name}`);
     return browser.actions().mouseMove(this.element).perform();
   };
 
-  async isElementDisplayed() {
+  isElementDisplayed() {
     logger.info(`Verify that element ${this.name} is displayed`);
     return this.element.isDisplayed();
   };
 
-  async waitForElementVisible() {
+  waitForElementVisible() {
     logger.info(`Waiting until element ${this.name} is visible`);
     return browser.wait(EC.visibilityOf(this.element), 10000);
   };

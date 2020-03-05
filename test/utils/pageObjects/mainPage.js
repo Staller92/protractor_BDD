@@ -10,7 +10,7 @@ class MainPage extends BasePage {
     this.searchInput = new Element('searchInput', by.xpath('//*[@id="searchright"]'));
   };
 
-  async open() {
+  open() {
     return super.open(this.url);
   };
 

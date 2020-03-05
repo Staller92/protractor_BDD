@@ -20,7 +20,7 @@ class Collection {
     return text;
   };
 
-  async waitForElementVisible() {
+  waitForElementVisible() {
     logger.info(`Waiting until collection ${this.name} is visible`);
     return browser.wait(EC.visibilityOf(this.collection.first()), 7000);
   };
