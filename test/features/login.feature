@@ -7,9 +7,9 @@ Feature: Login
   Scenario: Url of the page is not correct
     Then Page with url "https://shop.westerndigital.com/" is opened
 
-  @smoke
+  @my
   Scenario: Verify error message is displayed in case of incorrect data
-    Given User clicks on the "login"
+    Given User clicks "Header>login button"
     When User is logged in with following details
       | email    | incorrect@email.com |
       | password | incorrect_password  |

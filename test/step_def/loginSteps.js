@@ -1,7 +1,8 @@
 const {Then, When, Given} = require('cucumber');
 const {expect} = require('chai');
 const {logger} = require('../config/logger.config');
-const MainPage = require('../utils/pageObjects/mainPage');
+const MainPage = require('../pageObjects/mainPage');
+const findElementForClick = require('../step_def/utils/stepHelper');
 
 const mainPage = new MainPage();
 
@@ -10,9 +11,8 @@ Given(/^User opens the main page$/, function() {
   return mainPage.open();
 });
 
-Given(/^User clicks on the "([^"]*)"$/, async function(button) {
-  logger.info(`${button} was clicked`);
-  return mainPage.Header.loginButton.click();
+Given(/^User clicks "([^"]*)"$/, function(route) {
+  return findElementForClick(route).click();
 });
 
 When(/^User is logged in with following details$/, async function(table) {

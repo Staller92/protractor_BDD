@@ -1,6 +1,6 @@
 const BasePage = require('./base_elements/basePage');
 const Element = require('./base_elements/element');
-const logger = require('../../config/logger.config').logger;
+const logger = require('../config/logger.config').logger;
 
 class MainPage extends BasePage {
   constructor() {

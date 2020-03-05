@@ -1,8 +1,8 @@
 const {Then, When} = require('cucumber');
 const {expect} = require('chai');
 const {logger} = require('../config/logger.config');
-const MainPage = require('../utils/pageObjects/mainPage');
-const SearchResultsPage = require('../utils/pageObjects/searchResultsPage');
+const MainPage = require('../pageObjects/mainPage');
+const SearchResultsPage = require('../pageObjects/searchResultsPage');
 
 const mainPage = new MainPage();
 const searchResultsPage = new SearchResultsPage();

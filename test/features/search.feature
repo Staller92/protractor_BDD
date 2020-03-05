@@ -13,7 +13,7 @@ Feature: Search
       | disk       |
       | storage    |
 
-  @my
+
   Scenario: Filter should have 7 checkbox items
     When User searches for "disk"
     Then Filter section with '7' checkboxes are displayed

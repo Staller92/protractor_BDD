@@ -1,5 +1,5 @@
 const EC = require('protractor').ExpectedConditions;
-const logger = require('../../../config/logger.config').logger;
+const logger = require('../../config/logger.config').logger;
 
 class Element {
   constructor(name, locator) {
